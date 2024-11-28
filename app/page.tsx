@@ -1,11 +1,11 @@
-import ChartComponent from "@/components/ChartComponent";
+import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <div className="w-screen h-screen ">
         <Navbar/>
-        <ChartComponent/>
+        <Header/>
     </div>
   );
 }
