@@ -12,7 +12,6 @@ const Utils = {
   numbers: ({ count, min, max }: { count: number; min: number; max: number }) => {
     return Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min);
   },
-  rand: (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min,
 };
 
 const ChartComponent: React.FC = () => {
@@ -24,10 +23,10 @@ const ChartComponent: React.FC = () => {
       {
         label: "Dataset 1",
         data: Utils.numbers({ count: 7, min: -100, max: 100 }),
-        borderColor: "#FFFFFF", 
-        backgroundColor: "rgba(255, 0, 0, 0.2)",
-        fill: true, 
-        tension: 0.5, 
+        borderColor: "#91A6B4", // Black line
+        backgroundColor: "rgba(255, 0, 0, 0.2)", // Red shading
+        fill: true, // Enables the shaded area
+        tension: 0.5, // Smooth curves
         animations: {
           y: {
             duration: 2000,
@@ -59,7 +58,7 @@ const ChartComponent: React.FC = () => {
           y: {
             easing: "easeInOutElastic",
             from: (ctx) => {
-              const customCtx = ctx as any; 
+              const customCtx = ctx as any;
               if (ctx.type === "data") {
                 if (ctx.mode === "default" && !customCtx.dropped) {
                   customCtx.dropped = true;
@@ -81,12 +80,12 @@ const ChartComponent: React.FC = () => {
         scales: {
           x: {
             grid: {
-              color: "#CCCCCC", 
+              color: "#CCCCCC",
             },
           },
           y: {
             grid: {
-              color: "#CCCCCC", 
+              color: "#CCCCCC",
             },
           },
         },
@@ -98,7 +97,6 @@ const ChartComponent: React.FC = () => {
     };
   }, [chartData]);
 
-  // Actions (e.g., Add/Remove Dataset, Randomize Data)
   const actions = [
     {
       name: "Randomize",
@@ -115,9 +113,9 @@ const ChartComponent: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="xl:w-[60%] md:w-[90%] sm:w-[90%] p-6 shadow-lg rounded-lg">
-        <h1 className="text-2xl font-semibold text-slate-50 mb-4 text-center">Welcome Back John Doe</h1>
+    <div className="flex justify-center items-center min-h-screen bg-white">
+      <div className="xl:w-[50%] md:w-[90%] sm:w-[90%] p-6 shadow-md rounded-lg bg-white border border-gray-300">
+        <h1 className="text-2xl font-semibold text-gray-800 mb-4 text-center">Welcome Back, John Doe</h1>
         <canvas ref={chartRef}></canvas>
         <div className="mt-4 flex justify-center space-x-4">
           {actions.map((action, index) => (
