@@ -21,7 +21,7 @@ const shopProductList: Product[] = [
   { name: "Coffee Maker", category: "Appliances", active: false, description: "Brews excellent coffee" },
 ];
 
-const Products = () => {
+const Shops = () => {
   return (
     <div className="w-screen flex flex-col justify-center items-center">
       <div className="xl:w-[65%] md:w-[85%] border p-2 rounded-xl bg-slate-100">
@@ -72,4 +72,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Shops;
